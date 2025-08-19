@@ -1,0 +1,30 @@
+project-root/
+├── backend/                  ← Node.js + Express + MySQL
+├── frontend/                 ← React
+
+backend/
+├── node_modules/             # installed packages
+├── config/
+│   └── db.js                 # MySQL connection
+├── controllers/
+│   ├── taskController.js     # CRUD for tasks
+│   └── userController.js     # CRUD for users
+├── routes/
+│   ├── taskRoutes.js         # /tasks endpoints
+│   └── userRoutes.js         # /users endpoints
+├── models/
+│   ├── taskModel.js          # SQL queries for tasks
+│   └── userModel.js          # SQL queries for users
+├── middleware/
+│   └── authMiddleware.js     # optional, for auth
+├── package.json
+├── package-lock.json
+└── server.js                 # main Express server
+
+
+# Connect Node.js with MySQL
+
+npm init -y
+npm install express mysql2 cors body-parser
+
+
