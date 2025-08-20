@@ -10,9 +10,8 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     if (username === "Admin" && password === "123") {
-      localStorage.setItem("isAdmin", "true"); // Save session
+      localStorage.setItem("isAdmin", "true");
       navigate("/admin");
     } else {
       setError("Invalid username or password");
@@ -21,50 +20,42 @@ export default function Login() {
 
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-green-400 to-green-600">
-      <div className="bg-white shadow-2xl rounded-3xl p-10 w-96">
-        <h1 className="text-4xl font-extrabold mb-6 text-center text-green-800">
+      <div className="bg-white shadow-2xl rounded-2xl p-8 w-96">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
           Admin Login
         </h1>
-        {error && (
-          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
-        )}
-        <form onSubmit={handleLogin} className="flex flex-col gap-5">
+        {error && <p className="text-red-500 text-sm mb-3 text-center">{error}</p>}
+        <form onSubmit={handleLogin} className="flex flex-col gap-4">
           <input
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full px-5 py-3 border border-green-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition"
+            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
           />
-
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-5 py-3 border border-green-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition"
+              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-3 text-green-500 font-semibold"
+              className="absolute right-3 top-2 text-gray-500 text-sm"
             >
               {showPassword ? "Hide" : "Show"}
             </button>
           </div>
-
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition"
+            className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition"
           >
             Login
           </button>
         </form>
-
-        <p className="text-center text-green-700 mt-6 text-sm">
-          Welcome back! Please login to continue.
-        </p>
       </div>
     </div>
   );

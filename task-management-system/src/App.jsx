@@ -1,15 +1,17 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/Login";
-import AdminDashboard from "./pages/AdminDashboard";
+import Login from "./pages/Login.jsx";
+import Layout from "./components/Layout.jsx";
 
-export default function App() {
+function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/admin" element={<Layout />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
 }
+
+export default App;
